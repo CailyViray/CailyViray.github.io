@@ -110,22 +110,35 @@
     }
 
     /* --- Images & Video --- */
+    .images-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 20px;
+    }
     .image-container {
-      margin: 20px auto;
-      max-width: 320px;
+      max-width: 300px;
+      text-align: center;
     }
-    .image-container p {
+    .image-label {
       color: #ffcc00;
-      text-shadow: 0 0 5px #ffcc00;
+      text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00;
       font-weight: bold;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
       font-size: 1em;
+      animation: labelGlow 2s ease-in-out infinite alternate;
     }
-    img {
+    @keyframes labelGlow {
+      from { text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00; }
+      to { text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00; }
+    }
+    .image-container img {
       width: 100%;
       border-radius: 10px;
       box-shadow: 0 0 10px #00ffff;
     }
+
     iframe {
       margin-top: 20px;
       border: none;
@@ -154,15 +167,15 @@
 
   <section>
     <h2>Real-Life Connections</h2>
-
-    <div class="image-container">
-      <p>Hard drive and data storage (Unit 1)</p>
-      <img src="bits.jpeg" alt="Hard drive and data storage (Unit 1)">
-    </div>
-
-    <div class="image-container">
-      <p>Networking cables (Unit 2)</p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Data_center_network.jpg" alt="Networking cables (Unit 2)">
+    <div class="images-row">
+      <div class="image-container">
+        <p class="image-label">Hard drive and data storage (Unit 1)</p>
+        <img src="bits.jpeg" alt="Hard drive and data storage (Unit 1)">
+      </div>
+      <div class="image-container">
+        <p class="image-label">Networking cables (Unit 2)</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Data_center_network.jpg" alt="Networking cables (Unit 2)">
+      </div>
     </div>
   </section>
 
