@@ -110,9 +110,19 @@
     }
 
     /* --- Images & Video --- */
+    .image-container {
+      margin: 20px auto;
+      max-width: 320px;
+    }
+    .image-container p {
+      color: #ffcc00;
+      text-shadow: 0 0 5px #ffcc00;
+      font-weight: bold;
+      margin-bottom: 5px;
+      font-size: 1em;
+    }
     img {
-      max-width: 300px;
-      margin: 15px;
+      width: 100%;
       border-radius: 10px;
       box-shadow: 0 0 10px #00ffff;
     }
@@ -144,8 +154,16 @@
 
   <section>
     <h2>Real-Life Connections</h2>
-    <img src="bits.jpeg" alt="Hard drive and data storage (Unit 1)">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Data_center_network.jpg" alt="Networking cables (Unit 2)">
+
+    <div class="image-container">
+      <p>Hard drive and data storage (Unit 1)</p>
+      <img src="bits.jpeg" alt="Hard drive and data storage (Unit 1)">
+    </div>
+
+    <div class="image-container">
+      <p>Networking cables (Unit 2)</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Data_center_network.jpg" alt="Networking cables (Unit 2)">
+    </div>
   </section>
 
   <section>
@@ -184,7 +202,6 @@
     <iframe width="560" height="315" src="https://www.youtube.com/embed/x3c1ih2NJEg" title="How the Internet Works" allowfullscreen></iframe>
   </section>
 
-  <!-- Retro 8-bit soundtrack (click play to start) -->
   <section>
     <h2>Retro Soundtrack 🎶</h2>
     <audio controls loop>
