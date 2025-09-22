@@ -29,12 +29,14 @@
       opacity: 0.6;
       z-index: -2;
     }
+
     body::after {
       background: transparent url("https://www.transparenttextures.com/patterns/tiny-stars.png") repeat;
       animation: moveStars 200s linear infinite;
       opacity: 0.8;
       z-index: -1;
     }
+
     @keyframes moveStars {
       from { transform: translate(0, 0); }
       to { transform: translate(-500px, -500px); }
@@ -63,15 +65,12 @@
       transform: translateX(-50%);
       background: rgba(0,0,0,0.8);
       color: #ffcc00;
-      padding: 5px 8px;
-      border-radius: 6px;
-      margin-top: 8px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      margin-top: 10px;
       transition: opacity 0.5s ease-in-out;
-      font-size: 0.7em;       /* smaller text */
-      max-width: 250px;       /* prevents it from being too wide */
-      white-space: normal;    /* allows wrapping */
-      line-height: 1.2em;     /* tighter spacing */
-      text-align: center;
+      font-size: 0.8em;
+      white-space: nowrap;
     }
     header:hover span.hidden-message {
       visibility: visible;
@@ -120,56 +119,6 @@
       border-radius: 10px;
     }
 
-    /* --- Custom Audio Player --- */
-    .player {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-      margin-top: 20px;
-    }
-    .btn {
-      background: transparent;
-      border: 2px solid #0ff;
-      color: #0ff;
-      padding: 10px 20px;
-      border-radius: 50px;
-      font-size: 1.1em;
-      cursor: pointer;
-      text-shadow: 0 0 5px #0ff;
-      transition: all 0.3s ease;
-    }
-    .btn:hover {
-      background: #0ff;
-      color: #000;
-      box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
-    }
-    .btn:active {
-      transform: scale(0.95);
-    }
-
-    /* --- Play glow --- */
-    .playing {
-      animation: pulseGlow 1.5s infinite;
-    }
-    @keyframes pulseGlow {
-      0% { box-shadow: 0 0 5px #0ff, 0 0 10px #0ff; }
-      50% { box-shadow: 0 0 20px #0ff, 0 0 40px #0ff; }
-      100% { box-shadow: 0 0 5px #0ff, 0 0 10px #0ff; }
-    }
-
-    /* --- Stop button glowing red --- */
-    .stopped {
-      border-color: #f00;
-      color: #f00;
-      animation: stopGlow 1s infinite;
-    }
-    @keyframes stopGlow {
-      0% { box-shadow: 0 0 5px #f00, 0 0 10px #f00; }
-      50% { box-shadow: 0 0 20px #f00, 0 0 40px #f00; }
-      100% { box-shadow: 0 0 5px #f00, 0 0 10px #f00; }
-    }
-
     /* --- Footer --- */
     footer {
       margin-top: 50px;
@@ -185,12 +134,56 @@
   </header>
 
   <section>
+    <h2>My Future Goal</h2>
+    <p>After high school, I want to study <strong>Computer Science</strong>. Just like how data can be stored in bits and bytes, I want to build knowledge piece by piece. With scalable systems and fault-tolerant networks, I’ll be ready to explore the universe of technology!</p>
+  </section>
+
+  <section>
+    <h2>Real-Life Connections</h2>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Hard_disk_dismantled.jpg" alt="Hard drive and data storage (Unit 1)">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Data_center_network.jpg" alt="Networking cables (Unit 2)">
+  </section>
+
+  <section>
+    <h2>Glossary</h2>
+    <dl class="glossary">
+      <dt>Bit</dt><dd>A binary digit, either 0 or 1.</dd>
+      <dt>Byte</dt><dd>A sequence of 8 bits.</dd>
+      <dt>Roundoff</dt><dd>Error when bits are not enough to represent numbers with full precision.</dd>
+      <dt>Analog Data</dt><dd>Values that change smoothly, like live music volume.</dd>
+      <dt>Lossless</dt><dd>Compression that allows full recovery of original data.</dd>
+      <dt>Lossy</dt><dd>Compression that discards some data permanently.</dd>
+      <dt>Metadata</dt><dd>Data about data, like file details.</dd>
+      <dt>Computing Device</dt><dd>A physical device that runs programs.</dd>
+      <dt>Computer Network</dt><dd>A group of devices sending/receiving data.</dd>
+      <dt>Path</dt><dd>Series of connections between sender and receiver.</dd>
+      <dt>Protocol</dt><dd>Agreed rules for communication.</dd>
+      <dt>Fault Tolerant</dt><dd>System keeps working even if parts fail.</dd>
+      <dt>Scalability</dt><dd>System can expand to meet new demands.</dd>
+      <dt>Bandwidth</dt><dd>Max transmission capacity of a system.</dd>
+      <dt>URL</dt><dd>Easy-to-remember web address (e.g., www.example.com).</dd>
+      <dt>Physical Network</dt><dd>Hardware that carries internet signals.</dd>
+      <dt>Internet Protocol (IP)</dt><dd>Assigns unique addresses and routes data.</dd>
+      <dt>TCP</dt><dd>Ensures reliable, ordered, error-checked delivery of data.</dd>
+      <dt>UDP</dt><dd>Faster, less reliable protocol.</dd>
+      <dt>Packets</dt><dd>Small chunks of data messages are split into.</dd>
+      <dt>Routers</dt><dd>Forward data across networks via fastest path.</dd>
+      <dt>DNS</dt><dd>Translates domain names into IP addresses.</dd>
+      <dt>HTTP</dt><dd>Protocol for web pages and media.</dd>
+      <dt>WWW</dt><dd>System of linked pages browsable with HTTP.</dd>
+      <dt>Redundancy</dt><dd>Multiple pathways ensure reliability.</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>How the Internet Works</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/x3c1ih2NJEg" title="How the Internet Works" allowfullscreen></iframe>
+  </section>
+
+  <!-- Retro 8-bit soundtrack (click play to start) -->
+  <section>
     <h2>Retro Soundtrack 🎶</h2>
-    <div class="player">
-      <button id="playPause" class="btn">▶ Play</button>
-      <button id="stop" class="btn">⏹ Stop</button>
-    </div>
-    <audio id="music" loop>
+    <audio controls loop>
       <source src="https://vgmsite.com/soundtracks/mega-man-2-gamerip/cvphagln/01%20Title%20Theme.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
@@ -199,32 +192,5 @@
   <footer>
     Made with 💻 + 🚀
   </footer>
-
-  <script>
-    const audio = document.getElementById('music');
-    const playPauseBtn = document.getElementById('playPause');
-    const stopBtn = document.getElementById('stop');
-
-    playPauseBtn.addEventListener('click', () => {
-      if (audio.paused) {
-        audio.play();
-        playPauseBtn.textContent = '⏸ Pause';
-        playPauseBtn.classList.add('playing');
-        stopBtn.classList.remove('stopped');
-      } else {
-        audio.pause();
-        playPauseBtn.textContent = '▶ Play';
-        playPauseBtn.classList.remove('playing');
-      }
-    });
-
-    stopBtn.addEventListener('click', () => {
-      audio.pause();
-      audio.currentTime = 0;
-      playPauseBtn.textContent = '▶ Play';
-      playPauseBtn.classList.remove('playing');
-      stopBtn.classList.add('stopped'); // make it glow red
-    });
-  </script>
 </body>
 </html>
