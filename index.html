@@ -135,7 +135,6 @@
       from { text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00; }
       to { text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00; }
     }
-    /* Twinkling star effect */
     .image-label::before {
       content: "✨";
       position: absolute;
@@ -161,33 +160,6 @@
       width: 100%;
       border-radius: 10px;
       box-shadow: 0 0 10px #00ffff;
-    }
-
-    /* --- Audio Player --- */
-    audio {
-      width: 80%;
-      max-width: 500px;
-      background: rgba(0, 0, 50, 0.7);
-      border: 2px solid #00ffff;
-      border-radius: 15px;
-      box-shadow: 0 0 15px #00ffff, 0 0 30px #ff00ff;
-      padding: 10px;
-      outline: none;
-    }
-    audio::-webkit-media-controls-panel {
-      background: rgba(0, 0, 50, 0.7);
-      border-radius: 15px;
-    }
-    audio::-webkit-media-controls-play-button,
-    audio::-webkit-media-controls-volume-slider {
-      filter: drop-shadow(0 0 3px #ff00ff);
-    }
-
-    iframe {
-      margin-top: 20px;
-      border: none;
-      box-shadow: 0 0 15px #ff00ff;
-      border-radius: 10px;
     }
 
     /* --- CSS Threat Icons --- */
@@ -221,7 +193,60 @@
       100% { transform: scale(0.8); opacity: 0.5; }
     }
 
-    /* --- Footer --- */
+    /* --- Custom 8-Bit Music Player --- */
+    .music-player {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .music-btn {
+      font-size: 2em;
+      background: rgba(0, 0, 50, 0.7);
+      border: 2px solid #00ffff;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #00ffff, 0 0 30px #ff00ff;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      color: #ffffff;
+    }
+    .music-btn:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 20px #00ffff, 0 0 40px #ff00ff, 0 0 60px #ffffff;
+    }
+    .light-strip {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      margin-top: 5px;
+    }
+    .light {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #00ffff;
+      box-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff;
+      animation: blink 1s infinite;
+    }
+    .light:nth-child(2) { animation-delay: 0.2s; }
+    .light:nth-child(3) { animation-delay: 0.4s; }
+    .light:nth-child(4) { animation-delay: 0.6s; }
+    .light:nth-child(5) { animation-delay: 0.8s; }
+    @keyframes blink {
+      0%, 100% { opacity: 0.3; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    iframe {
+      margin-top: 20px;
+      border: none;
+      box-shadow: 0 0 15px #ff00ff;
+      border-radius: 10px;
+    }
+
     footer {
       margin-top: 50px;
       font-size: 0.9em;
@@ -302,15 +327,35 @@
   </section>
 
   <section>
-    <h2>Retro Soundtrack 🎶</h2>
-    <audio controls loop>
-      <source src="https://vgmsite.com/soundtracks/mega-man-2-gamerip/cvphagln/01%20Title%20Theme.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
+    <h2>Retro 8-Bit Soundtrack 🎶</h2>
+    <div class="music-player">
+      <button id="playBtn" class="music-btn">▶️</button>
+      <button id="pauseBtn" class="music-btn">⏸️</button>
+      <div class="light-strip">
+        <span class="light"></span>
+        <span class="light"></span>
+        <span class="light"></span>
+        <span class="light"></span>
+        <span class="light"></span>
+      </div>
+      <audio id="retroAudio" loop>
+        <source src="https://vgmsite.com/soundtracks/mega-man-2-gamerip/cvphagln/01%20Title%20Theme.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
   </section>
 
   <footer>
     Made with 💻 + 🚀
   </footer>
+
+  <script>
+    const audio = document.getElementById("retroAudio");
+    const playBtn = document.getElementById("playBtn");
+    const pauseBtn = document.getElementById("pauseBtn");
+
+    playBtn.addEventListener("click", () => { audio.play(); });
+    pauseBtn.addEventListener("click", () => { audio.pause(); });
+  </script>
 </body>
 </html>
