@@ -62,19 +62,23 @@
       position: absolute;
       top: 100%;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translateX(-50%) scale(0.8); /* start smaller */
       background: rgba(0,0,0,0.8);
       color: #ffcc00;
-      padding: 8px 12px;
-      border-radius: 8px;
-      margin-top: 10px;
-      transition: opacity 0.5s ease-in-out;
-      font-size: 0.8em;
-      white-space: nowrap;
+      padding: 6px 10px;
+      border-radius: 6px;
+      margin-top: 8px;
+      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* fade + zoom */
+      font-size: 0.75em;
+      max-width: 250px;
+      white-space: normal;
+      line-height: 1.3em;
+      text-align: center;
     }
     header:hover span.hidden-message {
       visibility: visible;
       opacity: 1;
+      transform: translateX(-50%) scale(1); /* scale up on hover */
     }
 
     /* --- Sections --- */
