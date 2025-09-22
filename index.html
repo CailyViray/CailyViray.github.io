@@ -109,7 +109,7 @@
       color: #ffffff;
     }
 
-    /* --- Images & Video --- */
+    /* --- Images & Labels --- */
     .images-row {
       display: flex;
       justify-content: center;
@@ -120,8 +120,10 @@
     .image-container {
       max-width: 300px;
       text-align: center;
+      position: relative;
     }
     .image-label {
+      position: relative;
       color: #ffcc00;
       text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00;
       font-weight: bold;
@@ -133,10 +135,52 @@
       from { text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00; }
       to { text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00; }
     }
+    /* Twinkling star effect */
+    .image-label::before {
+      content: "✨";
+      position: absolute;
+      left: -20px;
+      top: -10px;
+      font-size: 1.2em;
+      animation: twinkle 1.5s infinite alternate;
+    }
+    .image-label::after {
+      content: "✨";
+      position: absolute;
+      right: -20px;
+      bottom: -10px;
+      font-size: 1.2em;
+      animation: twinkle 1.5s infinite alternate-reverse;
+    }
+    @keyframes twinkle {
+      0% { opacity: 0.3; transform: scale(0.8) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1.2) rotate(15deg); }
+      100% { opacity: 0.3; transform: scale(0.8) rotate(-15deg); }
+    }
     .image-container img {
       width: 100%;
       border-radius: 10px;
       box-shadow: 0 0 10px #00ffff;
+    }
+
+    /* --- Audio Player --- */
+    audio {
+      width: 80%;
+      max-width: 500px;
+      background: rgba(0, 0, 50, 0.7);
+      border: 2px solid #00ffff;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #00ffff, 0 0 30px #ff00ff;
+      padding: 10px;
+      outline: none;
+    }
+    audio::-webkit-media-controls-panel {
+      background: rgba(0, 0, 50, 0.7);
+      border-radius: 15px;
+    }
+    audio::-webkit-media-controls-play-button,
+    audio::-webkit-media-controls-volume-slider {
+      filter: drop-shadow(0 0 3px #ff00ff);
     }
 
     iframe {
@@ -174,7 +218,7 @@
       </div>
       <div class="image-container">
         <p class="image-label">Networking cables (Unit 2)</p>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Data_center_network.jpg" alt="Networking cables (Unit 2)">
+        <img src="cables.jpg" alt="Networking cables (Unit 2)">
       </div>
     </div>
   </section>
@@ -194,37 +238,4 @@
       <dt>Path</dt><dd>Series of connections between sender and receiver.</dd>
       <dt>Protocol</dt><dd>Agreed rules for communication.</dd>
       <dt>Fault Tolerant</dt><dd>System keeps working even if parts fail.</dd>
-      <dt>Scalability</dt><dd>System can expand to meet new demands.</dd>
-      <dt>Bandwidth</dt><dd>Max transmission capacity of a system.</dd>
-      <dt>URL</dt><dd>Easy-to-remember web address (e.g., www.example.com).</dd>
-      <dt>Physical Network</dt><dd>Hardware that carries internet signals.</dd>
-      <dt>Internet Protocol (IP)</dt><dd>Assigns unique addresses and routes data.</dd>
-      <dt>TCP</dt><dd>Ensures reliable, ordered, error-checked delivery of data.</dd>
-      <dt>UDP</dt><dd>Faster, less reliable protocol.</dd>
-      <dt>Packets</dt><dd>Small chunks of data messages are split into.</dd>
-      <dt>Routers</dt><dd>Forward data across networks via fastest path.</dd>
-      <dt>DNS</dt><dd>Translates domain names into IP addresses.</dd>
-      <dt>HTTP</dt><dd>Protocol for web pages and media.</dd>
-      <dt>WWW</dt><dd>System of linked pages browsable with HTTP.</dd>
-      <dt>Redundancy</dt><dd>Multiple pathways ensure reliability.</dd>
-    </dl>
-  </section>
-
-  <section>
-    <h2>How the Internet Works</h2>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/x3c1ih2NJEg" title="How the Internet Works" allowfullscreen></iframe>
-  </section>
-
-  <section>
-    <h2>Retro Soundtrack 🎶</h2>
-    <audio controls loop>
-      <source src="https://vgmsite.com/soundtracks/mega-man-2-gamerip/cvphagln/01%20Title%20Theme.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-  </section>
-
-  <footer>
-    Made with 💻 + 🚀
-  </footer>
-</body>
-</html>
+      <dt>Scalability</dt><
