@@ -190,6 +190,37 @@
       border-radius: 10px;
     }
 
+    /* --- CSS Threat Icons --- */
+    .threat-icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      border-radius: 50%;
+      position: relative;
+      top: 5px;
+    }
+    .threat-icon.virus {
+      background: #ff3333;
+      box-shadow: 0 0 8px #ff3333, 0 0 15px #ff6666;
+      animation: glowPulse 1.5s infinite alternate;
+    }
+    .threat-icon.phishing {
+      background: #ffff33;
+      box-shadow: 0 0 8px #ffff33, 0 0 15px #ffff99;
+      animation: glowPulse 1.5s infinite alternate;
+    }
+    .threat-icon.ddos {
+      background: #cc33ff;
+      box-shadow: 0 0 8px #cc33ff, 0 0 15px #e066ff;
+      animation: glowPulse 1.5s infinite alternate;
+    }
+    @keyframes glowPulse {
+      0% { transform: scale(0.8); opacity: 0.5; }
+      50% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(0.8); opacity: 0.5; }
+    }
+
     /* --- Footer --- */
     footer {
       margin-top: 50px;
@@ -254,14 +285,13 @@
     </dl>
   </section>
 
-  <!-- New Cybersecurity Threats Section -->
   <section>
     <h2>Cybersecurity Threats</h2>
     <p>As technology grows, understanding cybersecurity threats is essential for safe navigation of the digital universe. Some common threats include:</p>
     <ul>
-      <li><strong>Viruses:</strong> Malicious programs that can corrupt files, slow down computing devices, or take control of systems. They often spread via downloads or infected media.</li>
-      <li><strong>Phishing:</strong> Deceptive attempts to obtain sensitive information, like passwords or credit cards, typically through fraudulent emails, fake websites, or impersonation of trusted entities.</li>
-      <li><strong>DDoS (Distributed Denial of Service):</strong> Attacks that overwhelm networks, servers, or websites with massive traffic, rendering them unavailable to legitimate users. Often used to disrupt services or extort organizations.</li>
+      <li><span class="threat-icon virus"></span> <strong>Viruses:</strong> Malicious programs that can corrupt files, slow down computing devices, or take control of systems. They often spread via downloads or infected media.</li>
+      <li><span class="threat-icon phishing"></span> <strong>Phishing:</strong> Deceptive attempts to obtain sensitive information, like passwords or credit cards, typically through fraudulent emails, fake websites, or impersonation of trusted entities.</li>
+      <li><span class="threat-icon ddos"></span> <strong>DDoS (Distributed Denial of Service):</strong> Attacks that overwhelm networks, servers, or websites with massive traffic, rendering them unavailable to legitimate users. Often used to disrupt services or extort organizations.</li>
     </ul>
     <p>To combat these threats, individuals and organizations must employ firewalls, antivirus software, secure passwords, and awareness of suspicious activity. Just like networks require <strong>fault tolerance</strong> and <strong>scalability</strong>, cybersecurity ensures data flows safely and systems remain operational in the vast digital galaxy. 🌌</p>
   </section>
