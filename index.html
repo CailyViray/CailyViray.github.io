@@ -5,15 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Caily's Space Page</title>
   <style>
+    /* --- Background Starfield --- */
     body {
-      background-color: #001f3f; /* dark blue */
-      color: #ffffff;
-      font-family: 'Courier New', monospace; /* retro style */
       margin: 0;
       padding: 0;
+      font-family: 'Courier New', monospace;
+      color: #ffffff;
       text-align: center;
-      cursor: url('https://cur.cursors-4u.net/animals/ani-12/ani1141.cur'), auto; /* Duck cursor */
+      background: #000011;
+      cursor: url('https://cur.cursors-4u.net/animals/ani-12/ani1141.cur'), auto;
+      overflow-x: hidden;
     }
+
+    body::before, body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: transparent url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
+      animation: moveStars 100s linear infinite;
+      opacity: 0.6;
+      z-index: -2;
+    }
+    body::after {
+      background: transparent url("https://www.transparenttextures.com/patterns/tiny-stars.png") repeat;
+      animation: moveStars 200s linear infinite;
+      opacity: 0.8;
+      z-index: -1;
+    }
+    @keyframes moveStars {
+      from { transform: translate(0, 0); }
+      to { transform: translate(-500px, -500px); }
+    }
+
+    /* --- Header --- */
     header {
       padding: 30px;
       font-size: 3em;
@@ -25,7 +52,8 @@
       from { text-shadow: 0 0 5px #fff, 0 0 10px #0ff, 0 0 20px #0ff; }
       to { text-shadow: 0 0 10px #ff0, 0 0 20px #f0f, 0 0 30px #f0f; }
     }
-    /* Hidden message styling */
+
+    /* --- Hidden Message --- */
     header span.hidden-message {
       visibility: hidden;
       opacity: 0;
@@ -46,6 +74,8 @@
       visibility: visible;
       opacity: 1;
     }
+
+    /* --- Sections --- */
     section {
       padding: 20px;
       margin: 20px;
@@ -54,6 +84,8 @@
       color: #00ffff;
       text-shadow: 0 0 5px #00ffff;
     }
+
+    /* --- Glossary --- */
     .glossary {
       background: rgba(255, 255, 255, 0.1);
       padding: 15px;
@@ -70,6 +102,8 @@
       margin-bottom: 10px;
       color: #ffffff;
     }
+
+    /* --- Images & Video --- */
     img {
       max-width: 300px;
       margin: 15px;
@@ -82,6 +116,46 @@
       box-shadow: 0 0 15px #ff00ff;
       border-radius: 10px;
     }
+
+    /* --- Custom Audio Player --- */
+    .player {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .btn {
+      background: transparent;
+      border: 2px solid #0ff;
+      color: #0ff;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 1.1em;
+      cursor: pointer;
+      text-shadow: 0 0 5px #0ff;
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      background: #0ff;
+      color: #000;
+      box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+    }
+    .btn:active {
+      transform: scale(0.95);
+    }
+
+    /* --- Glowing pulse when playing --- */
+    .playing {
+      animation: pulseGlow 1.5s infinite;
+    }
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 5px #0ff, 0 0 10px #0ff; }
+      50% { box-shadow: 0 0 20px #0ff, 0 0 40px #0ff; }
+      100% { box-shadow: 0 0 5px #0ff, 0 0 10px #0ff; }
+    }
+
+    /* --- Footer --- */
     footer {
       margin-top: 50px;
       font-size: 0.9em;
@@ -142,9 +216,46 @@
     <iframe width="560" height="315" src="https://www.youtube.com/embed/x3c1ih2NJEg" title="How the Internet Works" allowfullscreen></iframe>
   </section>
 
+  <!-- Retro 8-bit soundtrack (custom space-themed player with glow effect) -->
+  <section>
+    <h2>Retro Soundtrack 🎶</h2>
+    <div class="player">
+      <button id="playPause" class="btn">▶ Play</button>
+      <button id="stop" class="btn">⏹ Stop</button>
+    </div>
+    <audio id="music" loop>
+      <source src="https://vgmsite.com/soundtracks/mega-man-2-gamerip/cvphagln/01%20Title%20Theme.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </section>
+
   <footer>
     Made with 💻 + 🚀
   </footer>
+
+  <script>
+    const audio = document.getElementById('music');
+    const playPauseBtn = document.getElementById('playPause');
+    const stopBtn = document.getElementById('stop');
+
+    playPauseBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        playPauseBtn.textContent = '⏸ Pause';
+        playPauseBtn.classList.add('playing');
+      } else {
+        audio.pause();
+        playPauseBtn.textContent = '▶ Play';
+        playPauseBtn.classList.remove('playing');
+      }
+    });
+
+    stopBtn.addEventListener('click', () => {
+      audio.pause();
+      audio.currentTime = 0;
+      playPauseBtn.textContent = '▶ Play';
+      playPauseBtn.classList.remove('playing');
+    });
+  </script>
 </body>
 </html>
-
