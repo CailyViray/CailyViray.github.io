@@ -11,9 +11,9 @@
     padding: 0;
     font-family: 'Courier New', monospace;
     color: #ffffff;
-    text-align: center;
     background: #000011;
     cursor: url('https://cur.cursors-4u.net/animals/ani-12/ani1141.cur'), auto;
+    text-align: center;
     overflow-x: hidden;
   }
 
@@ -47,15 +47,15 @@
     padding: 30px;
     font-size: 3em;
     animation: glow 2s ease-in-out infinite alternate;
-    position: relative;
     display: inline-block;
+    margin-bottom: 40px;
   }
+
   @keyframes glow {
     from { text-shadow: 0 0 5px #fff, 0 0 10px #0ff, 0 0 20px #0ff; }
     to { text-shadow: 0 0 10px #ff0, 0 0 20px #f0f, 0 0 30px #f0f; }
   }
 
-  /* --- Hidden Message --- */
   header span.hidden-message {
     visibility: hidden;
     opacity: 0;
@@ -78,25 +78,74 @@
   }
 
   /* --- Sections --- */
-  section { padding: 20px; margin: 20px; }
-  h2 { color: #00ffff; text-shadow: 0 0 5px #00ffff; }
+  section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(0, 0, 20, 0.6);
+    border-radius: 15px;
+    box-shadow: 0 0 20px #00ffff;
+  }
+
+  h2 {
+    color: #00ffff;
+    text-shadow: 0 0 5px #00ffff;
+    margin-bottom: 20px;
+  }
+
+  p {
+    line-height: 1.6;
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 20px auto;
+  }
+
+  /* --- Images side by side --- */
+  .image-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .image-box {
+    text-align: center;
+    max-width: 300px;
+  }
+  .image-box p {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #ffcc00;
+    font-size: 1.1em;
+  }
+  .image-box img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #00ffff;
+  }
 
   /* --- Info Boxes --- */
   .info-box {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px 25px;
     border-radius: 10px;
     text-align: left;
-    max-width: 800px;
-    margin: auto;
+    margin: 0 auto;
   }
-  .info-box dt { font-weight: bold; color: #ffcc00; margin-top: 10px; cursor: pointer; }
-  .info-box dd { margin-bottom: 10px; color: #ffffff; }
-
-  /* --- Clickable Styling --- */
-  .clickable { text-decoration: underline; }
-  .clickable.glossary:hover { color: #00ffff; text-shadow: 0 0 10px #00ffff,0 0 20px #00ffff; }
-  .clickable.cyber:hover { color: #ff3333; text-shadow:0 0 10px #ff3333,0 0 20px #ff0000; }
+  .info-box dt {
+    font-weight: bold;
+    color: #ffcc00;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  .info-box dd {
+    margin-bottom: 10px;
+    color: #ffffff;
+  }
+  .clickable.glossary:hover { color: #00ffff; text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; }
+  .clickable.cyber:hover { color: #ff3333; text-shadow: 0 0 10px #ff3333, 0 0 20px #ff0000; }
 
   .detail-box {
     margin-top: 20px;
@@ -104,33 +153,33 @@
     border-radius: 10px;
     background: rgba(0,0,0,0.7);
     color: #ffffff;
-    max-width: 600px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 0 0 10px #00ffff;
+    box-shadow: 0 0 15px #00ffff;
     font-size: 1.1em;
     animation: fadeIn 0.5s ease-in-out;
+    text-align: center;
   }
+
   @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
 
-  /* --- Images side by side --- */
-  .image-row { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 20px; }
-  .image-box { text-align: center; max-width: 300px; }
-  .image-box p { margin-bottom: 10px; font-weight: bold; color: #ffcc00; }
-  .image-box img { width: 100%; max-width: 300px; height: 200px; object-fit: cover; border-radius: 10px; box-shadow:0 0 10px #00ffff; }
-
   /* --- Video --- */
-  iframe { margin-top: 20px; border: none; box-shadow: 0 0 15px #ff00ff; border-radius: 10px; }
+  iframe {
+    margin-top: 20px;
+    border: none;
+    box-shadow: 0 0 15px #ff00ff;
+    border-radius: 10px;
+    max-width: 100%;
+  }
 
-  /* --- Music Player --- */
-  .music-player { display:flex; flex-direction:column; align-items:center; margin-top:20px; }
-  .music-btn { background:black; border:2px solid #ff0000; color:#ff0000; font-size:1.5em; margin:5px; padding:10px 20px; border-radius:8px; cursor:pointer; transition:0.3s; }
-  .music-btn:hover { background:#220000; box-shadow:0 0 15px red; }
-  .light-strip { display:flex; gap:5px; margin-top:10px; }
-  .light { width:15px; height:15px; border-radius:50%; background:#400000; box-shadow:0 0 5px #400000; animation:pulse 1.5s infinite; }
-  @keyframes pulse { 0%{background:#400000; box-shadow:0 0 5px #400000;} 50%{background:#ff0000; box-shadow:0 0 15px #ff0000;} 100%{background:#400000; box-shadow:0 0 5px #400000;} }
-
-  footer { margin-top:50px; font-size:0.9em; color:#999; }
+  footer {
+    margin-top: 50px;
+    font-size: 1em;
+    color: #999;
+    text-align: center;
+    padding-bottom: 30px;
+  }
 </style>
 </head>
 <body>
@@ -158,40 +207,27 @@
   </div>
 </section>
 
-<!-- Glossary -->
 <section>
   <h2>Glossary</h2>
   <dl class="info-box">
-    <dt class="clickable glossary" data-detail="A bit is the smallest unit of data in a computer. It can be 0 or 1, like a switch.">Bit</dt><dd>A binary digit, either 0 or 1.</dd>
-    <dt class="clickable glossary" data-detail="A byte is 8 bits. One byte can store a character or small data like a letter.">Byte</dt><dd>A sequence of 8 bits.</dd>
-    <dt class="clickable glossary" data-detail="Roundoff error occurs when there aren’t enough bits to store the exact number.">Roundoff</dt><dd>Error from insufficient bits.</dd>
-    <dt class="clickable glossary" data-detail="Analog data changes continuously over time, like live music volume.">Analog Data</dt><dd>Values that change smoothly.</dd>
-    <dt class="clickable glossary" data-detail="Lossless compression reduces file size without losing any data.">Lossless</dt><dd>Compression that preserves all data.</dd>
-    <dt class="clickable glossary" data-detail="Lossy compression reduces file size by discarding some data permanently.">Lossy</dt><dd>Compression that discards data.</dd>
-    <dt class="clickable glossary" data-detail="Metadata is data about data, like file info or creation date.">Metadata</dt><dd>Data about data.</dd>
-    <dt class="clickable glossary" data-detail="A computing device is a physical device that can run programs, like a computer or smartphone.">Computing Device</dt><dd>A physical device that runs programs.</dd>
-    <dt class="clickable glossary" data-detail="A computer network is a group of devices that share data.">Computer Network</dt><dd>Group of devices sharing data.</dd>
-    <dt class="clickable glossary" data-detail="Path is the route data takes between sender and receiver.">Path</dt><dd>Series of connections.</dd>
-    <dt class="clickable glossary" data-detail="Protocol is a set of rules for communication.">Protocol</dt><dd>Rules for communication.</dd>
-    <dt class="clickable glossary" data-detail="Fault Tolerant systems keep working even if parts fail.">Fault Tolerant</dt><dd>System keeps working despite failures.</dd>
-    <dt class="clickable glossary" data-detail="Scalability is the ability for a system to expand to meet new demands.">Scalability</dt><dd>System can expand or contract.</dd>
-    <dt class="clickable glossary" data-detail="Bandwidth is the maximum rate of data transfer.">Bandwidth</dt><dd>Maximum transmission capacity.</dd>
-    <dt class="clickable glossary" data-detail="URL is an easy-to-remember web address.">URL</dt><dd>Easy-to-remember web address.</dd>
-    <dt class="clickable glossary" data-detail="Physical Network is the hardware and connections that carry internet signals.">Physical Network</dt><dd>Hardware carrying signals.</dd>
-    <dt class="clickable glossary" data-detail="IP assigns unique addresses to devices and routes data.">Internet Protocol (IP)</dt><dd>Assigns addresses and routes data.</dd>
-    <dt class="clickable glossary" data-detail="TCP ensures reliable, ordered, and error-checked delivery.">TCP</dt><dd>Reliable data delivery protocol.</dd>
-    <dt class="clickable glossary" data-detail="UDP is a fast, lightweight, but less reliable protocol.">UDP</dt><dd>Fast but less reliable protocol.</dd>
-    <dt class="clickable glossary" data-detail="Packets are small chunks of data sent across networks.">Packets</dt><dd>Small chunks of messages.</dd>
-    <dt class="clickable glossary" data-detail="Routers forward data across networks using fastest paths.">Routers</dt><dd>Forward data across networks.</dd>
-    <dt class="clickable glossary" data-detail="DNS translates human-readable names into IP addresses.">DNS</dt><dd>Translates domain names.</dd>
-    <dt class="clickable glossary" data-detail="HTTP is used to transfer web pages and media.">HTTP</dt><dd>Protocol for web pages.</dd>
-    <dt class="clickable glossary" data-detail="WWW is a system of linked pages browsable over HTTP.">WWW</dt><dd>Linked pages on the web.</dd>
-    <dt class="clickable glossary" data-detail="Redundancy ensures multiple paths exist, so if one fails, data can use another.">Redundancy</dt><dd>Multiple network pathways.</dd>
+    <dt class="clickable glossary" data-detail="A bit is the smallest unit of data in a computer. It can be 0 or 1, like a switch.">Bit</dt>
+    <dd>A binary digit, either 0 or 1.</dd>
+    <dt class="clickable glossary" data-detail="A byte is 8 bits. One byte can store a character or small data like a letter.">Byte</dt>
+    <dd>A sequence of 8 bits.</dd>
+    <dt class="clickable glossary" data-detail="Roundoff error occurs when there aren’t enough bits to store the exact number.">Roundoff</dt>
+    <dd>Error from insufficient bits.</dd>
+    <dt class="clickable glossary" data-detail="Analog data changes continuously over time, like live music volume.">Analog Data</dt>
+    <dd>Values that change smoothly.</dd>
+    <dt class="clickable glossary" data-detail="Lossless compression reduces file size without losing any data.">Lossless</dt>
+    <dd>Compression that preserves all data.</dd>
+    <dt class="clickable glossary" data-detail="Lossy compression reduces file size by discarding some data permanently.">Lossy</dt>
+    <dd>Compression that discards data.</dd>
+    <dt class="clickable glossary" data-detail="Metadata is data about data, like file info or creation date.">Metadata</dt>
+    <dd>Data about data.</dd>
   </dl>
   <div id="detail-box" class="detail-box">Click a glossary term above to learn more.</div>
 </section>
 
-<!-- Cybersecurity Threats -->
 <section>
   <h2>Cybersecurity Threats</h2>
   <p style="max-width: 700px; margin:auto; color:#ffffff; line-height:1.6;">
@@ -200,10 +236,8 @@
   <dl class="info-box">
     <dt class="clickable cyber" data-detail="A virus is malicious software that attaches to files or programs. It can delete, steal, or corrupt data. It spreads when infected files are shared.">🐛 Viruses</dt>
     <dd>Programs that harm systems.</dd>
-
     <dt class="clickable cyber" data-detail="Phishing tricks people into giving personal information, like passwords, by pretending to be trusted entities, usually via fake emails or websites.">📧 Phishing</dt>
     <dd>Tricking people to share info.</dd>
-
     <dt class="clickable cyber" data-detail="DDoS attacks flood servers with massive traffic, causing them to crash or slow down. Think of prank callers overwhelming a phone line.">🌐 DDoS</dt>
     <dd>Overloading systems to shut them down.</dd>
   </dl>
