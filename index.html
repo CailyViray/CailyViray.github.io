@@ -62,23 +62,19 @@
       position: absolute;
       top: 100%;
       left: 50%;
-      transform: translateX(-50%) scale(0.8);
+      transform: translateX(-50%);
       background: rgba(0,0,0,0.8);
       color: #ffcc00;
-      padding: 6px 10px;
-      border-radius: 6px;
-      margin-top: 8px;
-      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-      font-size: 0.75em;
-      max-width: 250px;
-      white-space: normal;
-      line-height: 1.3em;
-      text-align: center;
+      padding: 8px 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+      transition: opacity 0.5s ease-in-out;
+      font-size: 0.8em;
+      white-space: nowrap;
     }
     header:hover span.hidden-message {
       visibility: visible;
       opacity: 1;
-      transform: translateX(-50%) scale(1);
     }
 
     /* --- Sections --- */
@@ -109,137 +105,30 @@
       color: #ffffff;
     }
 
-    /* --- Images & Labels --- */
-    .images-row {
+    /* --- Images side by side --- */
+    .image-row {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 40px;
+      flex-wrap: wrap;
       margin-top: 20px;
     }
-    .image-container {
-      max-width: 300px;
+    .image-box {
       text-align: center;
-      position: relative;
+      max-width: 300px;
     }
-    .image-label {
-      position: relative;
-      color: #ffcc00;
-      text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00;
+    .image-box p {
+      margin-bottom: 10px;
       font-weight: bold;
-      margin-bottom: 8px;
-      font-size: 1em;
-      animation: labelGlow 2s ease-in-out infinite alternate;
+      color: #ffcc00;
     }
-    @keyframes labelGlow {
-      from { text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00; }
-      to { text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00; }
-    }
-    .image-label::before {
-      content: "✨";
-      position: absolute;
-      left: -20px;
-      top: -10px;
-      font-size: 1.2em;
-      animation: twinkle 1.5s infinite alternate;
-    }
-    .image-label::after {
-      content: "✨";
-      position: absolute;
-      right: -20px;
-      bottom: -10px;
-      font-size: 1.2em;
-      animation: twinkle 1.5s infinite alternate-reverse;
-    }
-    @keyframes twinkle {
-      0% { opacity: 0.3; transform: scale(0.8) rotate(0deg); }
-      50% { opacity: 1; transform: scale(1.2) rotate(15deg); }
-      100% { opacity: 0.3; transform: scale(0.8) rotate(-15deg); }
-    }
-    .image-container img {
-      width: 100%;
+    img {
+      max-width: 100%;
       border-radius: 10px;
       box-shadow: 0 0 10px #00ffff;
     }
 
-    /* --- CSS Threat Icons --- */
-    .threat-icon {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
-      border-radius: 50%;
-      position: relative;
-      top: 5px;
-    }
-    .threat-icon.virus {
-      background: #ff3333;
-      box-shadow: 0 0 8px #ff3333, 0 0 15px #ff6666;
-      animation: glowPulse 1.5s infinite alternate;
-    }
-    .threat-icon.phishing {
-      background: #ffff33;
-      box-shadow: 0 0 8px #ffff33, 0 0 15px #ffff99;
-      animation: glowPulse 1.5s infinite alternate;
-    }
-    .threat-icon.ddos {
-      background: #cc33ff;
-      box-shadow: 0 0 8px #cc33ff, 0 0 15px #e066ff;
-      animation: glowPulse 1.5s infinite alternate;
-    }
-    @keyframes glowPulse {
-      0% { transform: scale(0.8); opacity: 0.5; }
-      50% { transform: scale(1.2); opacity: 1; }
-      100% { transform: scale(0.8); opacity: 0.5; }
-    }
-
-    /* --- Custom 8-Bit Music Player --- */
-    .music-player {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      margin-top: 15px;
-    }
-    .music-btn {
-      font-size: 2em;
-      background: rgba(0, 0, 50, 0.7);
-      border: 2px solid #00ffff;
-      border-radius: 15px;
-      box-shadow: 0 0 15px #00ffff, 0 0 30px #ff00ff;
-      padding: 10px 20px;
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
-      color: #ffffff;
-    }
-    .music-btn:hover {
-      transform: scale(1.2);
-      box-shadow: 0 0 20px #00ffff, 0 0 40px #ff00ff, 0 0 60px #ffffff;
-    }
-    .light-strip {
-      display: flex;
-      justify-content: center;
-      gap: 5px;
-      margin-top: 5px;
-    }
-    .light {
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      background: #00ffff;
-      box-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff;
-      animation: blink 1s infinite;
-    }
-    .light:nth-child(2) { animation-delay: 0.2s; }
-    .light:nth-child(3) { animation-delay: 0.4s; }
-    .light:nth-child(4) { animation-delay: 0.6s; }
-    .light:nth-child(5) { animation-delay: 0.8s; }
-    @keyframes blink {
-      0%, 100% { opacity: 0.3; transform: scale(0.8); }
-      50% { opacity: 1; transform: scale(1.2); }
-    }
-
+    /* --- Video --- */
     iframe {
       margin-top: 20px;
       border: none;
@@ -247,6 +136,48 @@
       border-radius: 10px;
     }
 
+    /* --- Music Player --- */
+    .music-player {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .music-btn {
+      background: black;
+      border: 2px solid #ff0000;
+      color: #ff0000;
+      font-size: 1.5em;
+      margin: 5px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .music-btn:hover {
+      background: #220000;
+      box-shadow: 0 0 15px red;
+    }
+    .light-strip {
+      display: flex;
+      gap: 5px;
+      margin-top: 10px;
+    }
+    .light {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #400000;
+      box-shadow: 0 0 5px #400000;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { background: #400000; box-shadow: 0 0 5px #400000; }
+      50% { background: #ff0000; box-shadow: 0 0 15px #ff0000; }
+      100% { background: #400000; box-shadow: 0 0 5px #400000; }
+    }
+
+    /* --- Footer --- */
     footer {
       margin-top: 50px;
       font-size: 0.9em;
@@ -267,13 +198,13 @@
 
   <section>
     <h2>Real-Life Connections</h2>
-    <div class="images-row">
-      <div class="image-container">
-        <p class="image-label">Hard drive and data storage (Unit 1)</p>
+    <div class="image-row">
+      <div class="image-box">
+        <p>Unit 1: Hard Drive & Data</p>
         <img src="bits.jpeg" alt="Hard drive and data storage (Unit 1)">
       </div>
-      <div class="image-container">
-        <p class="image-label">Networking cables (Unit 2)</p>
+      <div class="image-box">
+        <p>Unit 2: Networking Cables</p>
         <img src="cables.jpg" alt="Networking cables (Unit 2)">
       </div>
     </div>
@@ -311,21 +242,11 @@
   </section>
 
   <section>
-    <h2>Cybersecurity Threats</h2>
-    <p>As technology grows, understanding cybersecurity threats is essential for safe navigation of the digital universe. Some common threats include:</p>
-    <ul>
-      <li><span class="threat-icon virus"></span> <strong>Viruses:</strong> Malicious programs that can corrupt files, slow down computing devices, or take control of systems. They often spread via downloads or infected media.</li>
-      <li><span class="threat-icon phishing"></span> <strong>Phishing:</strong> Deceptive attempts to obtain sensitive information, like passwords or credit cards, typically through fraudulent emails, fake websites, or impersonation of trusted entities.</li>
-      <li><span class="threat-icon ddos"></span> <strong>DDoS (Distributed Denial of Service):</strong> Attacks that overwhelm networks, servers, or websites with massive traffic, rendering them unavailable to legitimate users. Often used to disrupt services or extort organizations.</li>
-    </ul>
-    <p>To combat these threats, individuals and organizations must employ firewalls, antivirus software, secure passwords, and awareness of suspicious activity. Just like networks require <strong>fault tolerance</strong> and <strong>scalability</strong>, cybersecurity ensures data flows safely and systems remain operational in the vast digital galaxy. 🌌</p>
-  </section>
-
-  <section>
     <h2>How the Internet Works</h2>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/x3c1ih2NJEg" title="How the Internet Works" allowfullscreen></iframe>
   </section>
 
+  <!-- Retro 8-bit soundtrack -->
   <section>
     <h2>Retro 8-Bit Soundtrack 🎶</h2>
     <div class="music-player">
@@ -339,7 +260,7 @@
         <span class="light"></span>
       </div>
       <audio id="retroAudio" loop>
-        <source src="https://vgmsite.com/soundtracks/mega-man-2-gamerip/cvphagln/01%20Title%20Theme.mp3" type="audio/mpeg">
+        <source src="https://opengameart.org/sites/default/files/8bit_battle_loop.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>
     </div>
@@ -350,12 +271,17 @@
   </footer>
 
   <script>
-    const audio = document.getElementById("retroAudio");
     const playBtn = document.getElementById("playBtn");
     const pauseBtn = document.getElementById("pauseBtn");
+    const audio = document.getElementById("retroAudio");
 
-    playBtn.addEventListener("click", () => { audio.play(); });
-    pauseBtn.addEventListener("click", () => { audio.pause(); });
+    playBtn.addEventListener("click", () => {
+      audio.play();
+    });
+
+    pauseBtn.addEventListener("click", () => {
+      audio.pause();
+    });
   </script>
 </body>
 </html>
