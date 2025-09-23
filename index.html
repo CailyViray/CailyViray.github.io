@@ -1,373 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Caily's Space Page</title>
-  <style>
-    /* --- Background Starfield --- */
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Courier New', monospace;
-      color: #ffffff;
-      text-align: center;
-      background: #000011;
-      cursor: url('https://cur.cursors-4u.net/animals/ani-12/ani1141.cur'), auto;
-      overflow-x: hidden;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caily's Space Page</title>
+<style>
+  /* --- Background Starfield --- */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', monospace;
+    color: #ffffff;
+    text-align: center;
+    background: #000011;
+    cursor: url('https://cur.cursors-4u.net/animals/ani-12/ani1141.cur'), auto;
+    overflow-x: hidden;
+  }
 
-    body::before, body::after {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 200%;
-      background: transparent url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
-      animation: moveStars 100s linear infinite;
-      opacity: 0.6;
-      z-index: -2;
-    }
+  body::before, body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: transparent url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
+    animation: moveStars 100s linear infinite;
+    opacity: 0.6;
+    z-index: -2;
+  }
 
-    body::after {
-      background: transparent url("https://www.transparenttextures.com/patterns/tiny-stars.png") repeat;
-      animation: moveStars 200s linear infinite;
-      opacity: 0.8;
-      z-index: -1;
-    }
+  body::after {
+    background: transparent url("https://www.transparenttextures.com/patterns/tiny-stars.png") repeat;
+    animation: moveStars 200s linear infinite;
+    opacity: 0.8;
+    z-index: -1;
+  }
 
-    @keyframes moveStars {
-      from { transform: translate(0, 0); }
-      to { transform: translate(-500px, -500px); }
-    }
+  @keyframes moveStars {
+    from { transform: translate(0, 0); }
+    to { transform: translate(-500px, -500px); }
+  }
 
-    /* --- Header --- */
-    header {
-      padding: 30px;
-      font-size: 3em;
-      animation: glow 2s ease-in-out infinite alternate;
-      position: relative;
-      display: inline-block;
-    }
-    @keyframes glow {
-      from { text-shadow: 0 0 5px #fff, 0 0 10px #0ff, 0 0 20px #0ff; }
-      to { text-shadow: 0 0 10px #ff0, 0 0 20px #f0f, 0 0 30px #f0f; }
-    }
+  /* --- Header --- */
+  header {
+    padding: 30px;
+    font-size: 3em;
+    animation: glow 2s ease-in-out infinite alternate;
+    position: relative;
+    display: inline-block;
+  }
+  @keyframes glow {
+    from { text-shadow: 0 0 5px #fff, 0 0 10px #0ff, 0 0 20px #0ff; }
+    to { text-shadow: 0 0 10px #ff0, 0 0 20px #f0f, 0 0 30px #f0f; }
+  }
 
-    /* --- Hidden Message --- */
-    header span.hidden-message {
-      visibility: hidden;
-      opacity: 0;
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,0.8);
-      color: #ffcc00;
-      padding: 8px 12px;
-      border-radius: 8px;
-      margin-top: 10px;
-      transition: opacity 0.5s ease-in-out;
-      font-size: 0.8em;
-      white-space: nowrap;
-    }
-    header:hover span.hidden-message {
-      visibility: visible;
-      opacity: 1;
-    }
+  /* --- Hidden Message --- */
+  header span.hidden-message {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    color: #ffcc00;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-top: 10px;
+    transition: opacity 0.5s ease-in-out;
+    font-size: 0.8em;
+    white-space: nowrap;
+  }
+  header:hover span.hidden-message {
+    visibility: visible;
+    opacity: 1;
+  }
 
-    /* --- Sections --- */
-    section {
-      padding: 20px;
-      margin: 20px;
-    }
-    h2 {
-      color: #00ffff;
-      text-shadow: 0 0 5px #00ffff;
-    }
+  /* --- Sections --- */
+  section { padding: 20px; margin: 20px; }
+  h2 { color: #00ffff; text-shadow: 0 0 5px #00ffff; }
 
-    /* --- Glossary + Cybersecurity Shared Styles --- */
-    .info-box {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 15px;
-      border-radius: 10px;
-      text-align: left;
-      max-width: 800px;
-      margin: auto;
-    }
-    .info-box dt {
-      font-weight: bold;
-      color: #ffcc00;
-      margin-top: 10px;
-      transition: all 0.3s ease-in-out;
-    }
-    .info-box dd {
-      margin-bottom: 10px;
-      color: #ffffff;
-    }
+  /* --- Info Boxes --- */
+  .info-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+    max-width: 800px;
+    margin: auto;
+  }
+  .info-box dt { font-weight: bold; color: #ffcc00; margin-top: 10px; cursor: pointer; }
+  .info-box dd { margin-bottom: 10px; color: #ffffff; }
 
-    /* Glossary clickable terms - cyan glow */
-    .clickable.glossary {
-      color: #00ffff;
-      cursor: pointer;
-      text-decoration: underline;
-      transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
-    }
-    .clickable.glossary:hover {
-      color: #00ffff;
-      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
-      transform: scale(1.1);
-    }
+  /* --- Clickable Styling --- */
+  .clickable { text-decoration: underline; }
+  .clickable.glossary:hover { color: #00ffff; text-shadow: 0 0 10px #00ffff,0 0 20px #00ffff; }
+  .clickable.cyber:hover { color: #ff3333; text-shadow:0 0 10px #ff3333,0 0 20px #ff0000; }
 
-    /* Cybersecurity clickable terms - red glow */
-    .clickable.cyber {
-      color: #ff6666;
-      cursor: pointer;
-      text-decoration: underline;
-      transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
-    }
-    .clickable.cyber:hover {
-      color: #ff3333;
-      text-shadow: 0 0 10px #ff3333, 0 0 20px #ff0000;
-      transform: scale(1.1);
-    }
+  .detail-box {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.7);
+    color: #ffffff;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 10px #00ffff;
+    font-size: 1.1em;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
 
-    .detail-box {
-      margin-top: 20px;
-      padding: 15px;
-      border-radius: 10px;
-      background: rgba(0,0,0,0.7);
-      color: #ffffff;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0 0 10px #00ffff;
-      font-size: 1.1em;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
+  /* --- Images side by side --- */
+  .image-row { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 20px; }
+  .image-box { text-align: center; max-width: 300px; }
+  .image-box p { margin-bottom: 10px; font-weight: bold; color: #ffcc00; }
+  .image-box img { width: 100%; max-width: 300px; height: 200px; object-fit: cover; border-radius: 10px; box-shadow:0 0 10px #00ffff; }
 
-    /* --- Images side by side --- */
-    .image-row {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-    .image-box {
-      text-align: center;
-      max-width: 300px;
-    }
-    .image-box p {
-      margin-bottom: 10px;
-      font-weight: bold;
-      color: #ffcc00;
-    }
-    .image-box img {
-      width: 100%;
-      max-width: 300px;  
-      height: 200px;     
-      object-fit: cover;  
-      border-radius: 10px;
-      box-shadow: 0 0 10px #00ffff;
-    }
+  /* --- Video --- */
+  iframe { margin-top: 20px; border: none; box-shadow: 0 0 15px #ff00ff; border-radius: 10px; }
 
-    /* --- Video --- */
-    iframe {
-      margin-top: 20px;
-      border: none;
-      box-shadow: 0 0 15px #ff00ff;
-      border-radius: 10px;
-    }
+  /* --- Music Player --- */
+  .music-player { display:flex; flex-direction:column; align-items:center; margin-top:20px; }
+  .music-btn { background:black; border:2px solid #ff0000; color:#ff0000; font-size:1.5em; margin:5px; padding:10px 20px; border-radius:8px; cursor:pointer; transition:0.3s; }
+  .music-btn:hover { background:#220000; box-shadow:0 0 15px red; }
+  .light-strip { display:flex; gap:5px; margin-top:10px; }
+  .light { width:15px; height:15px; border-radius:50%; background:#400000; box-shadow:0 0 5px #400000; animation:pulse 1.5s infinite; }
+  @keyframes pulse { 0%{background:#400000; box-shadow:0 0 5px #400000;} 50%{background:#ff0000; box-shadow:0 0 15px #ff0000;} 100%{background:#400000; box-shadow:0 0 5px #400000;} }
 
-    /* --- Music Player --- */
-    .music-player {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 20px;
-    }
-    .music-btn {
-      background: black;
-      border: 2px solid #ff0000;
-      color: #ff0000;
-      font-size: 1.5em;
-      margin: 5px;
-      padding: 10px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .music-btn:hover {
-      background: #220000;
-      box-shadow: 0 0 15px red;
-    }
-    .light-strip {
-      display: flex;
-      gap: 5px;
-      margin-top: 10px;
-    }
-    .light {
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      background: #400000;
-      box-shadow: 0 0 5px #400000;
-      animation: pulse 1.5s infinite;
-    }
-    @keyframes pulse {
-      0% { background: #400000; box-shadow: 0 0 5px #400000; }
-      50% { background: #ff0000; box-shadow: 0 0 15px #ff0000; }
-      100% { background: #400000; box-shadow: 0 0 5px #400000; }
-    }
-
-    /* --- Footer --- */
-    footer {
-      margin-top: 50px;
-      font-size: 0.9em;
-      color: #999;
-    }
-  </style>
+  footer { margin-top:50px; font-size:0.9em; color:#999; }
+</style>
 </head>
 <body>
-  <header>
-    ✨ Caily ✨
-    <span class="hidden-message">Keep exploring the stars, Caily. The universe is just data waiting to be decoded. 🌌</span>
-  </header>
 
-  <section>
-    <h2>My Future Goal</h2>
-    <p>After high school, I want to study <strong>Computer Science</strong>. Just like how data can be stored in bits and bytes, I want to build knowledge piece by piece. With scalable systems and fault-tolerant networks, I’ll be ready to explore the universe of technology!</p>
-  </section>
+<header>✨ Caily ✨
+  <span class="hidden-message">Keep exploring the stars, Caily. The universe is just data waiting to be decoded. 🌌</span>
+</header>
 
-  <section>
-    <h2>Real-Life Connections</h2>
-    <div class="image-row">
-      <div class="image-box">
-        <p>Unit 1: Hard Drive & Data</p>
-        <img src="bits.jpeg" alt="Hard drive and data storage (Unit 1)">
-      </div>
-      <div class="image-box">
-        <p>Unit 2: Networking Cables</p>
-        <img src="cables.jpg" alt="Networking cables (Unit 2)">
-      </div>
+<section>
+  <h2>My Future Goal</h2>
+  <p>After high school, I want to study <strong>Computer Science</strong>. Just like how data can be stored in bits and bytes, I want to build knowledge piece by piece. With scalable systems and fault-tolerant networks, I’ll be ready to explore the universe of technology!</p>
+</section>
+
+<section>
+  <h2>Real-Life Connections</h2>
+  <div class="image-row">
+    <div class="image-box">
+      <p>Unit 1: Hard Drive & Data</p>
+      <img src="bits.jpeg" alt="Hard drive and data storage (Unit 1)">
     </div>
-  </section>
+    <div class="image-box">
+      <p>Unit 2: Networking Cables</p>
+      <img src="cables.jpg" alt="Networking cables (Unit 2)">
+    </div>
+  </div>
+</section>
 
-  <!-- Glossary -->
-  <section>
-    <h2>Glossary</h2>
-    <dl class="info-box glossary">
-      <dt class="clickable glossary" data-detail="A bit is the smallest unit of data in a computer. Think of it like a light switch: OFF (0) or ON (1). Computers combine billions of bits to represent music, games, videos, and more.">Bit</dt>
-      <dd>A binary digit, either 0 or 1.</dd>
+<!-- Glossary -->
+<section>
+  <h2>Glossary</h2>
+  <dl class="info-box">
+    <dt class="clickable glossary" data-detail="A bit is the smallest unit of data in a computer. It can be 0 or 1, like a switch.">Bit</dt><dd>A binary digit, either 0 or 1.</dd>
+    <dt class="clickable glossary" data-detail="A byte is 8 bits. One byte can store a character or small data like a letter.">Byte</dt><dd>A sequence of 8 bits.</dd>
+    <dt class="clickable glossary" data-detail="Roundoff error occurs when there aren’t enough bits to store the exact number.">Roundoff</dt><dd>Error from insufficient bits.</dd>
+    <dt class="clickable glossary" data-detail="Analog data changes continuously over time, like live music volume.">Analog Data</dt><dd>Values that change smoothly.</dd>
+    <dt class="clickable glossary" data-detail="Lossless compression reduces file size without losing any data.">Lossless</dt><dd>Compression that preserves all data.</dd>
+    <dt class="clickable glossary" data-detail="Lossy compression reduces file size by discarding some data permanently.">Lossy</dt><dd>Compression that discards data.</dd>
+    <dt class="clickable glossary" data-detail="Metadata is data about data, like file info or creation date.">Metadata</dt><dd>Data about data.</dd>
+    <dt class="clickable glossary" data-detail="A computing device is a physical device that can run programs, like a computer or smartphone.">Computing Device</dt><dd>A physical device that runs programs.</dd>
+    <dt class="clickable glossary" data-detail="A computer network is a group of devices that share data.">Computer Network</dt><dd>Group of devices sharing data.</dd>
+    <dt class="clickable glossary" data-detail="Path is the route data takes between sender and receiver.">Path</dt><dd>Series of connections.</dd>
+    <dt class="clickable glossary" data-detail="Protocol is a set of rules for communication.">Protocol</dt><dd>Rules for communication.</dd>
+    <dt class="clickable glossary" data-detail="Fault Tolerant systems keep working even if parts fail.">Fault Tolerant</dt><dd>System keeps working despite failures.</dd>
+    <dt class="clickable glossary" data-detail="Scalability is the ability for a system to expand to meet new demands.">Scalability</dt><dd>System can expand or contract.</dd>
+    <dt class="clickable glossary" data-detail="Bandwidth is the maximum rate of data transfer.">Bandwidth</dt><dd>Maximum transmission capacity.</dd>
+    <dt class="clickable glossary" data-detail="URL is an easy-to-remember web address.">URL</dt><dd>Easy-to-remember web address.</dd>
+    <dt class="clickable glossary" data-detail="Physical Network is the hardware and connections that carry internet signals.">Physical Network</dt><dd>Hardware carrying signals.</dd>
+    <dt class="clickable glossary" data-detail="IP assigns unique addresses to devices and routes data.">Internet Protocol (IP)</dt><dd>Assigns addresses and routes data.</dd>
+    <dt class="clickable glossary" data-detail="TCP ensures reliable, ordered, and error-checked delivery.">TCP</dt><dd>Reliable data delivery protocol.</dd>
+    <dt class="clickable glossary" data-detail="UDP is a fast, lightweight, but less reliable protocol.">UDP</dt><dd>Fast but less reliable protocol.</dd>
+    <dt class="clickable glossary" data-detail="Packets are small chunks of data sent across networks.">Packets</dt><dd>Small chunks of messages.</dd>
+    <dt class="clickable glossary" data-detail="Routers forward data across networks using fastest paths.">Routers</dt><dd>Forward data across networks.</dd>
+    <dt class="clickable glossary" data-detail="DNS translates human-readable names into IP addresses.">DNS</dt><dd>Translates domain names.</dd>
+    <dt class="clickable glossary" data-detail="HTTP is used to transfer web pages and media.">HTTP</dt><dd>Protocol for web pages.</dd>
+    <dt class="clickable glossary" data-detail="WWW is a system of linked pages browsable over HTTP.">WWW</dt><dd>Linked pages on the web.</dd>
+    <dt class="clickable glossary" data-detail="Redundancy ensures multiple paths exist, so if one fails, data can use another.">Redundancy</dt><dd>Multiple network pathways.</dd>
+  </dl>
+  <div id="detail-box" class="detail-box">Click a glossary term above to learn more.</div>
+</section>
 
-      <dt class="clickable glossary" data-detail="A byte is made of 8 bits. One byte can store a single character like the letter 'A'. File sizes (KB, MB, GB) are measured in bytes.">Byte</dt>
-      <dd>A sequence of 8 bits.</dd>
+<!-- Cybersecurity Threats -->
+<section>
+  <h2>Cybersecurity Threats</h2>
+  <dl class="info-box">
+    <dt class="clickable cyber" data-detail="A virus is malicious software that attaches to files or programs. It can delete, steal, or corrupt data. It spreads when infected files are shared.">🐛 Viruses</dt>
+    <dd>Programs that harm systems.</dd>
 
-      <dt class="clickable glossary" data-detail="Roundoff error occurs when a number cannot be represented exactly with the available bits. For example, 3.141592 may become 3.14 with limited bits.">Roundoff</dt>
-      <dd>Error from insufficient bits.</dd>
+    <dt class="clickable cyber" data-detail="Phishing tricks people into giving personal information, like passwords, by pretending to be trusted entities, usually via fake emails or websites.">📧 Phishing</dt>
+    <dd>Tricking people to share info.</dd>
 
-      <dt class="clickable glossary" data-detail="Analog data changes smoothly over time, like the pitch or volume of live music.">Analog Data</dt>
-      <dd>Values that change smoothly.</dd>
+    <dt class="clickable cyber" data-detail="DDoS attacks flood servers with massive traffic, causing them to crash or slow down. Think of prank callers overwhelming a phone line.">🌐 DDoS</dt>
+    <dd>Overloading systems to shut them down.</dd>
+  </dl>
+  <div id="cyber-detail-box" class="detail-box">Click a threat above to learn more.</div>
+</section>
 
-      <dt class="clickable glossary" data-detail="Lossless compression reduces file size without losing any data, so you can fully recover the original file.">Lossless</dt>
-      <dd>Compression that preserves all data.</dd>
+<section>
+  <h2>How the Internet Works</h2>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/x3c1ih2NJEg" title="How the Internet Works" allowfullscreen></iframe>
+</section>
 
-      <dt class="clickable glossary" data-detail="Lossy compression reduces file size by discarding some data permanently.">Lossy</dt>
-      <dd>Compression that discards some data.</dd>
+<script>
+  // Glossary click functionality
+  const glossaryTerms = document.querySelectorAll('.clickable.glossary');
+  const detailBox = document.getElementById('detail-box');
+  glossaryTerms.forEach(term => {
+    term.addEventListener('click', () => {
+      detailBox.textContent = term.dataset.detail;
+    });
+  });
 
-      <dt class="clickable glossary" data-detail="Metadata is data about data, like a file's name, type, size, or creation date.">Metadata</dt>
-      <dd>Data about data.</dd>
+  // Cybersecurity click functionality
+  const cyberTerms = document.querySelectorAll('.clickable.cyber');
+  const cyberBox = document.getElementById('cyber-detail-box');
+  cyberTerms.forEach(term => {
+    term.addEventListener('click', () => {
+      cyberBox.textContent = term.dataset.detail;
+    });
+  });
+</script>
 
-      <dt class="clickable glossary" data-detail="A computing device is a physical device that can run a program, like a computer, smartphone, or smart sensor.">Computing Device</dt>
-      <dd>A physical device that runs programs.</dd>
-
-      <dt class="clickable glossary" data-detail="A computer network is a group of interconnected devices capable of sending and receiving data.">Computer Network</dt>
-      <dd>Group of devices sharing data.</dd>
-
-      <dt class="clickable glossary" data-detail="Path refers to the series of connections data takes between sender and receiver on a network.">Path</dt>
-      <dd>Series of connections on a network.</dd>
-
-      <dt class="clickable glossary" data-detail="Protocol is a set of rules defining how systems communicate and behave.">Protocol</dt>
-      <dd>Rules for communication.</dd>
-
-      <dt class="clickable glossary" data-detail="Fault tolerant systems continue functioning even if some components fail.">Fault Tolerant</dt>
-      <dd>System keeps working despite failures.</dd>
-
-      <dt class="clickable glossary" data-detail="Scalability is the ability for a system to grow or shrink to meet new demands.">Scalability</dt>
-      <dd>System can expand or contract.</dd>
-
-      <dt class="clickable glossary" data-detail="Bandwidth is the maximum transmission capacity of a system, measured in bits per second.">Bandwidth</dt>
-      <dd>Maximum transmission capacity.</dd>
-
-      <dt class="clickable glossary" data-detail="URL (Uniform Resource Locator) is an easy-to-remember web address like www.example.com.">URL</dt>
-      <dd>Easy-to-remember web address.</dd>
-
-      <dt class="clickable glossary" data-detail="Physical network refers to hardware and connections that carry internet signals.">Physical Network</dt>
-      <dd>Hardware carrying internet signals.</dd>
-
-      <dt class="clickable glossary" data-detail="Internet Protocol (IP) assigns unique addresses to devices and determines how data is routed between them.">Internet Protocol (IP)</dt>
-      <dd>Assigns addresses and routes data.</dd>
-
-      <dt class="clickable glossary" data-detail="TCP ensures reliable, ordered, and error-checked delivery of data packets.">TCP</dt>
-      <dd>Reliable data delivery protocol.</dd>
-
-      <dt class="clickable glossary" data-detail="UDP is a lightweight alternative to TCP with minimal error-checking, faster but less reliable.">UDP</dt>
-      <dd>Fast but less reliable protocol.</dd>
-
-      <dt class="clickable glossary" data-detail="Packets are small chunks of data into which larger messages are divided for transmission.">Packets</dt>
-      <dd>Small chunks of messages.</dd>
-
-      <dt class="clickable glossary" data-detail="Routers are specialized computers that forward data across networks, choosing the fastest path.">Routers</dt>
-      <dd>Forward data across networks.</dd>
-
-      <dt class="clickable glossary" data-detail="DNS translates human-readable domain names into IP addresses.">DNS</dt>
-      <dd>Translates domain names.</dd>
-
-      <dt class="clickable glossary" data-detail="HTTP is used for transmitting and requesting web pages and media on the World Wide Web.">HTTP</dt>
-      <dd>Protocol for web pages.</dd>
-
-      <dt class="clickable glossary" data-detail="WWW is a system of linked pages, media, and files browsable over HTTP.">WWW</dt>
-      <dd>Linked pages on the web.</dd>
-
-      <dt class="clickable glossary" data-detail="Redundancy ensures multiple pathways exist in networks, so if one route fails, packets can take another.">Redundancy</dt>
-      <dd>Multiple network pathways.</dd>
-    </dl>
-    <div id="detail-box" class="detail-box">Click a word above to learn more.</div>
-  </section>
-
-  <!-- Cybersecurity Threats -->
-  <section>
-    <h2>Cybersecurity Threats</h2>
-    <dl class="info-box">
-      <dt class="clickable cyber" data-detail="A virus is malicious software that attaches to programs or files. Once activated, it can damage files, steal data, or slow down computers. Like a real virus, it spreads when the infected file is shared.">🐛 Viruses</dt>
-      <dd>Programs that spread and harm systems.</dd>
-
-      <dt class="clickable cyber" data-detail="Phishing is when attackers trick you into giving personal info, like passwords, by pretending to be someone you trust (like your bank or school). Often done through fake emails or websites.">📧 Phishing</dt>
-      <dd>Tricking people into sharing personal info.</dd>
-
-      <dt class="clickable cyber" data-detail="A DDoS (Distributed Denial of Service) attack floods a server with so many requests that it crashes or slows down. It’s like thousands of prank callers tying up a phone line so real calls can’t get through.">🌐 DDoS</dt>
-      <dd>Overloading a system with traffic to shut it down.</dd>
-    </dl>
-    <div id="cyber-detail-box" class="detail-box">Click a threat above to learn more.</div>
-  </section>
-
-  <section>
-    <h2>How the Internet Works</h2>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/x3c1ih2NJEg" title="How the Internet Works" allowfullscreen></iframe>
-  </section>
-
-  <!-- Retro 8-bit soundtrack -->
-  <section>
-    <h2>Retro 8-Bit Soundtrack 🎶</h2>
-    <div class="music-player">
-      <button id="playBtn" class="music-btn">▶️</button>
-      <button id="pauseBtn" class="music-btn">⏸️</button>
-      <div class="light-strip">
-        <span class="light"></span>
-        <span class="light"></
+</body>
+</html>
