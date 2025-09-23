@@ -87,8 +87,8 @@
       text-shadow: 0 0 5px #00ffff;
     }
 
-    /* --- Glossary --- */
-    .glossary {
+    /* --- Glossary + Cybersecurity Shared Styles --- */
+    .info-box {
       background: rgba(255, 255, 255, 0.1);
       padding: 15px;
       border-radius: 10px;
@@ -96,13 +96,59 @@
       max-width: 800px;
       margin: auto;
     }
-    .glossary dt {
+    .info-box dt {
       font-weight: bold;
       color: #ffcc00;
+      margin-top: 10px;
+      transition: all 0.3s ease-in-out;
     }
-    .glossary dd {
+    .info-box dd {
       margin-bottom: 10px;
       color: #ffffff;
+    }
+
+    /* Glossary clickable terms - cyan glow */
+    .clickable.glossary {
+      color: #00ffff;
+      cursor: pointer;
+      text-decoration: underline;
+      transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
+    }
+    .clickable.glossary:hover {
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+      transform: scale(1.1);
+    }
+
+    /* Cybersecurity clickable terms - red glow */
+    .clickable.cyber {
+      color: #ff6666;
+      cursor: pointer;
+      text-decoration: underline;
+      transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
+    }
+    .clickable.cyber:hover {
+      color: #ff3333;
+      text-shadow: 0 0 10px #ff3333, 0 0 20px #ff0000;
+      transform: scale(1.1);
+    }
+
+    .detail-box {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      background: rgba(0,0,0,0.7);
+      color: #ffffff;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 10px #00ffff;
+      font-size: 1.1em;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
 
     /* --- Images side by side --- */
@@ -210,35 +256,33 @@
     </div>
   </section>
 
+  <!-- Glossary -->
   <section>
     <h2>Glossary</h2>
-    <dl class="glossary">
-      <dt>Bit</dt><dd>A binary digit, either 0 or 1.</dd>
-      <dt>Byte</dt><dd>A sequence of 8 bits.</dd>
-      <dt>Roundoff</dt><dd>Error when bits are not enough to represent numbers with full precision.</dd>
-      <dt>Analog Data</dt><dd>Values that change smoothly, like live music volume.</dd>
-      <dt>Lossless</dt><dd>Compression that allows full recovery of original data.</dd>
-      <dt>Lossy</dt><dd>Compression that discards some data permanently.</dd>
-      <dt>Metadata</dt><dd>Data about data, like file details.</dd>
-      <dt>Computing Device</dt><dd>A physical device that runs programs.</dd>
-      <dt>Computer Network</dt><dd>A group of devices sending/receiving data.</dd>
-      <dt>Path</dt><dd>Series of connections between sender and receiver.</dd>
-      <dt>Protocol</dt><dd>Agreed rules for communication.</dd>
-      <dt>Fault Tolerant</dt><dd>System keeps working even if parts fail.</dd>
-      <dt>Scalability</dt><dd>System can expand to meet new demands.</dd>
-      <dt>Bandwidth</dt><dd>Max transmission capacity of a system.</dd>
-      <dt>URL</dt><dd>Easy-to-remember web address (e.g., www.example.com).</dd>
-      <dt>Physical Network</dt><dd>Hardware that carries internet signals.</dd>
-      <dt>Internet Protocol (IP)</dt><dd>Assigns unique addresses and routes data.</dd>
-      <dt>TCP</dt><dd>Ensures reliable, ordered, error-checked delivery of data.</dd>
-      <dt>UDP</dt><dd>Faster, less reliable protocol.</dd>
-      <dt>Packets</dt><dd>Small chunks of data messages are split into.</dd>
-      <dt>Routers</dt><dd>Forward data across networks via fastest path.</dd>
-      <dt>DNS</dt><dd>Translates domain names into IP addresses.</dd>
-      <dt>HTTP</dt><dd>Protocol for web pages and media.</dd>
-      <dt>WWW</dt><dd>System of linked pages browsable with HTTP.</dd>
-      <dt>Redundancy</dt><dd>Multiple pathways ensure reliability.</dd>
+    <dl class="info-box glossary">
+      <dt class="clickable glossary" data-detail="A bit is the smallest unit of data in a computer. Think of it like a light switch: OFF (0) or ON (1). Computers combine billions of bits to represent music, games, videos, and more.">Bit</dt>
+      <dd>A binary digit, either 0 or 1.</dd>
+
+      <dt class="clickable glossary" data-detail="A byte is made of 8 bits. Imagine it like a 'word' made from 8 letters. One byte can store a single character like the letter 'A'. File sizes (KB, MB, GB) are all measured in bytes.">Byte</dt>
+      <dd>A sequence of 8 bits.</dd>
     </dl>
+    <div id="detail-box" class="detail-box">Click a word above to learn more.</div>
+  </section>
+
+  <!-- Cybersecurity Threats -->
+  <section>
+    <h2>Cybersecurity Threats</h2>
+    <dl class="info-box">
+      <dt class="clickable cyber" data-detail="A virus is malicious software that attaches to programs or files. Once activated, it can damage files, steal data, or slow down computers. Like a real virus, it spreads when the infected file is shared.">🐛 Viruses</dt>
+      <dd>Programs that spread and harm systems.</dd>
+
+      <dt class="clickable cyber" data-detail="Phishing is when attackers trick you into giving personal info, like passwords, by pretending to be someone you trust (like your bank or school). Often done through fake emails or websites.">📧 Phishing</dt>
+      <dd>Tricking people into sharing personal info.</dd>
+
+      <dt class="clickable cyber" data-detail="A DDoS (Distributed Denial of Service) attack floods a server with so many requests that it crashes or slows down. It’s like thousands of prank callers tying up a phone line so real calls can’t get through.">🌐 DDoS</dt>
+      <dd>Overloading a system with traffic to shut it down.</dd>
+    </dl>
+    <div id="cyber-detail-box" class="detail-box">Click a threat above to learn more.</div>
   </section>
 
   <section>
@@ -271,16 +315,21 @@
   </footer>
 
   <script>
+    // Music controls
     const playBtn = document.getElementById("playBtn");
     const pauseBtn = document.getElementById("pauseBtn");
     const audio = document.getElementById("retroAudio");
+    playBtn.addEventListener("click", () => { audio.play(); });
+    pauseBtn.addEventListener("click", () => { audio.pause(); });
 
-    playBtn.addEventListener("click", () => {
-      audio.play();
-    });
-
-    pauseBtn.addEventListener("click", () => {
-      audio.pause();
+    // Glossary & Cybersecurity click-to-expand
+    document.querySelectorAll(".info-box").forEach(box => {
+      const detailTarget = box.nextElementSibling; // detail-box after each section
+      box.querySelectorAll(".clickable").forEach(term => {
+        term.addEventListener("click", () => {
+          detailTarget.textContent = term.getAttribute("data-detail");
+        });
+      });
     });
   </script>
 </body>
