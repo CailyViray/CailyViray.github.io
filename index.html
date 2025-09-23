@@ -168,8 +168,11 @@
       font-weight: bold;
       color: #ffcc00;
     }
-    img {
-      max-width: 100%;
+    .image-box img {
+      width: 100%;
+      max-width: 300px;  
+      height: 200px;     
+      object-fit: cover;  
       border-radius: 10px;
       box-shadow: 0 0 10px #00ffff;
     }
@@ -263,8 +266,77 @@
       <dt class="clickable glossary" data-detail="A bit is the smallest unit of data in a computer. Think of it like a light switch: OFF (0) or ON (1). Computers combine billions of bits to represent music, games, videos, and more.">Bit</dt>
       <dd>A binary digit, either 0 or 1.</dd>
 
-      <dt class="clickable glossary" data-detail="A byte is made of 8 bits. Imagine it like a 'word' made from 8 letters. One byte can store a single character like the letter 'A'. File sizes (KB, MB, GB) are all measured in bytes.">Byte</dt>
+      <dt class="clickable glossary" data-detail="A byte is made of 8 bits. One byte can store a single character like the letter 'A'. File sizes (KB, MB, GB) are measured in bytes.">Byte</dt>
       <dd>A sequence of 8 bits.</dd>
+
+      <dt class="clickable glossary" data-detail="Roundoff error occurs when a number cannot be represented exactly with the available bits. For example, 3.141592 may become 3.14 with limited bits.">Roundoff</dt>
+      <dd>Error from insufficient bits.</dd>
+
+      <dt class="clickable glossary" data-detail="Analog data changes smoothly over time, like the pitch or volume of live music.">Analog Data</dt>
+      <dd>Values that change smoothly.</dd>
+
+      <dt class="clickable glossary" data-detail="Lossless compression reduces file size without losing any data, so you can fully recover the original file.">Lossless</dt>
+      <dd>Compression that preserves all data.</dd>
+
+      <dt class="clickable glossary" data-detail="Lossy compression reduces file size by discarding some data permanently.">Lossy</dt>
+      <dd>Compression that discards some data.</dd>
+
+      <dt class="clickable glossary" data-detail="Metadata is data about data, like a file's name, type, size, or creation date.">Metadata</dt>
+      <dd>Data about data.</dd>
+
+      <dt class="clickable glossary" data-detail="A computing device is a physical device that can run a program, like a computer, smartphone, or smart sensor.">Computing Device</dt>
+      <dd>A physical device that runs programs.</dd>
+
+      <dt class="clickable glossary" data-detail="A computer network is a group of interconnected devices capable of sending and receiving data.">Computer Network</dt>
+      <dd>Group of devices sharing data.</dd>
+
+      <dt class="clickable glossary" data-detail="Path refers to the series of connections data takes between sender and receiver on a network.">Path</dt>
+      <dd>Series of connections on a network.</dd>
+
+      <dt class="clickable glossary" data-detail="Protocol is a set of rules defining how systems communicate and behave.">Protocol</dt>
+      <dd>Rules for communication.</dd>
+
+      <dt class="clickable glossary" data-detail="Fault tolerant systems continue functioning even if some components fail.">Fault Tolerant</dt>
+      <dd>System keeps working despite failures.</dd>
+
+      <dt class="clickable glossary" data-detail="Scalability is the ability for a system to grow or shrink to meet new demands.">Scalability</dt>
+      <dd>System can expand or contract.</dd>
+
+      <dt class="clickable glossary" data-detail="Bandwidth is the maximum transmission capacity of a system, measured in bits per second.">Bandwidth</dt>
+      <dd>Maximum transmission capacity.</dd>
+
+      <dt class="clickable glossary" data-detail="URL (Uniform Resource Locator) is an easy-to-remember web address like www.example.com.">URL</dt>
+      <dd>Easy-to-remember web address.</dd>
+
+      <dt class="clickable glossary" data-detail="Physical network refers to hardware and connections that carry internet signals.">Physical Network</dt>
+      <dd>Hardware carrying internet signals.</dd>
+
+      <dt class="clickable glossary" data-detail="Internet Protocol (IP) assigns unique addresses to devices and determines how data is routed between them.">Internet Protocol (IP)</dt>
+      <dd>Assigns addresses and routes data.</dd>
+
+      <dt class="clickable glossary" data-detail="TCP ensures reliable, ordered, and error-checked delivery of data packets.">TCP</dt>
+      <dd>Reliable data delivery protocol.</dd>
+
+      <dt class="clickable glossary" data-detail="UDP is a lightweight alternative to TCP with minimal error-checking, faster but less reliable.">UDP</dt>
+      <dd>Fast but less reliable protocol.</dd>
+
+      <dt class="clickable glossary" data-detail="Packets are small chunks of data into which larger messages are divided for transmission.">Packets</dt>
+      <dd>Small chunks of messages.</dd>
+
+      <dt class="clickable glossary" data-detail="Routers are specialized computers that forward data across networks, choosing the fastest path.">Routers</dt>
+      <dd>Forward data across networks.</dd>
+
+      <dt class="clickable glossary" data-detail="DNS translates human-readable domain names into IP addresses.">DNS</dt>
+      <dd>Translates domain names.</dd>
+
+      <dt class="clickable glossary" data-detail="HTTP is used for transmitting and requesting web pages and media on the World Wide Web.">HTTP</dt>
+      <dd>Protocol for web pages.</dd>
+
+      <dt class="clickable glossary" data-detail="WWW is a system of linked pages, media, and files browsable over HTTP.">WWW</dt>
+      <dd>Linked pages on the web.</dd>
+
+      <dt class="clickable glossary" data-detail="Redundancy ensures multiple pathways exist in networks, so if one route fails, packets can take another.">Redundancy</dt>
+      <dd>Multiple network pathways.</dd>
     </dl>
     <div id="detail-box" class="detail-box">Click a word above to learn more.</div>
   </section>
@@ -298,39 +370,4 @@
       <button id="pauseBtn" class="music-btn">⏸️</button>
       <div class="light-strip">
         <span class="light"></span>
-        <span class="light"></span>
-        <span class="light"></span>
-        <span class="light"></span>
-        <span class="light"></span>
-      </div>
-      <audio id="retroAudio" loop>
-        <source src="https://opengameart.org/sites/default/files/8bit_battle_loop.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-    </div>
-  </section>
-
-  <footer>
-    Made with 💻 + 🚀
-  </footer>
-
-  <script>
-    // Music controls
-    const playBtn = document.getElementById("playBtn");
-    const pauseBtn = document.getElementById("pauseBtn");
-    const audio = document.getElementById("retroAudio");
-    playBtn.addEventListener("click", () => { audio.play(); });
-    pauseBtn.addEventListener("click", () => { audio.pause(); });
-
-    // Glossary & Cybersecurity click-to-expand
-    document.querySelectorAll(".info-box").forEach(box => {
-      const detailTarget = box.nextElementSibling; // detail-box after each section
-      box.querySelectorAll(".clickable").forEach(term => {
-        term.addEventListener("click", () => {
-          detailTarget.textContent = term.getAttribute("data-detail");
-        });
-      });
-    });
-  </script>
-</body>
-</html>
+        <span class="light"></
